@@ -52,7 +52,10 @@ class Game {
         this.window = window.open('https://classic.minecraft.net/', '_blank', `popup=true,width=${this.config.window_width},height=${this.config.window_height},top=${top},left=${left}`);
 
         // 处理新窗口未打开的情况
-        if (this.window === null) {}
+        if (this.window === null) {
+            alert($t('index.game_window_open_failed'));
+            return;
+        }
 
         // 监听新窗口关闭事件
         this.timer.checkWindowClose = setInterval(() => {

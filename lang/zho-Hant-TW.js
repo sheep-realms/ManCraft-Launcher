@@ -74,7 +74,8 @@ const lang_zho_Hant_TW = {
         game_started: "遊戲已啟動",
         game_stop: "結束遊戲",
         game_stopping: "正在結束遊戲...",
-        description: "只需一步，立即開始"
+        description: "只需一步，立即開始",
+        game_window_open_failed: "遊戲視窗開啟失敗，請檢查瀏覽器設定"
     },
     download: {
         description_1: "您不需要下載任何內容，我們已經為您準備好了一切！",

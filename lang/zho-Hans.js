@@ -74,7 +74,8 @@ const lang_zho_Hans = {
         game_started: "游戏已启动",
         game_stop: "结束游戏",
         game_stopping: "正在结束游戏...",
-        description: "只需一步，立即开始"
+        description: "只需一步，立即开始",
+        game_window_open_failed: "游戏窗口打开失败，请检查浏览器设置"
     },
     download: {
         description_1: "您不需要下载任何内容，我们已经为您准备好了一切！",
