@@ -47,7 +47,7 @@
     --height-component: calc(var(--font-size-base) * 2.25);
     --height-component-large: calc(var(--font-size-base) * 2.75);
     --height-component-small: calc(var(--font-size-base) * 1.625);
-    --height-page-container: max(calc(100vh - var(--height-top-nav) - 300px), 400px);
+    --height-page-container: max(calc(100vh - var(--height-top-nav) - var(--gap-middle) * 2 - 300px), 400px);
 
     --gap-extra-large: calc(var(--font-size-base) * 3);
     --gap-large: calc(var(--font-size-base) * 2);
