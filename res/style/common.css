@@ -185,6 +185,10 @@ ul {
     width: min(calc(100% - var(--gap-large)), 600px);
 }
 
+.text-center {
+    text-align: center;
+}
+
 
 
 .page-index {
