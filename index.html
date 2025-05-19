@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man! Craft Launcher</title>
+    <link rel="stylesheet" href="res/style/common.css">
+    <link rel="stylesheet" href="res/style/component.css">
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="res/class/EchoLiveSystem.js"></script>
+    <script src="res/data/root.js"></script>
+    <script src="lang/index.js"></script>
+    <script src="res/class/Translator.js"></script>
+    <script id="translator-init">
+        const translator = new Translator('zho-Hans');
+        const $t = function(...e) {
+            return translator.output(...e);
+        };
+        const $tc = function(...e) {
+            return translator.outputByTextComponent(...e);
+        };
+        translator.init();
+    </script>
+    <script src="res/data/icon.js"></script>
+    <script src="res/class/Icon.js"></script>
+    <script src="res/class/Game.js"></script>
+    <script src="res/script/component.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Man! Craft Launcher</h1>
+        <div class="description">一款假得不能再假的 Minecraft 启动器</div>
+    </header>
+
+    <main>
+        <!-- 标签页标题 -->
+        <nav id="launcher-nav" class="tabpage-nav" data-navid="main">
+            <button
+                class="tabpage-nav-item"
+                data-pageid="index"
+                role="tab"
+                aria-selected="true"
+                accesskey="1"
+                data-i18n-title="nav.index.description"
+            >
+                <span class="tabpage-nav-icon" data-icon="material:power-standby"></span>
+                <span class="tabpage-nav-label" data-i18n="nav.index.title">启动</span>
+            </button>
+            <button
+                class="tabpage-nav-item"
+                data-pageid="download"
+                role="tab"
+                aria-selected="false"
+                accesskey="2"
+                data-i18n-title="nav.download.description"
+            >
+                <span class="tabpage-nav-icon" data-icon="material:download-outline"></span>
+                <span class="tabpage-nav-label" data-i18n="nav.download.title">下载</span>
+            </button>
+            <button
+                class="tabpage-nav-item"
+                data-pageid="settings"
+                role="tab"
+                aria-selected="false"
+                accesskey="3"
+                data-i18n-title="nav.settings.description"
+            >
+                <span class="tabpage-nav-icon" data-icon="material:cog-outline"></span>
+                <span class="tabpage-nav-label" data-i18n="nav.settings.title">设置</span>
+            </button>
+            <button
+                class="tabpage-nav-item"
+                data-pageid="more"
+                role="tab"
+                aria-selected="false"
+                accesskey="4"
+                data-i18n-title="nav.more.description"
+            >
+                <span class="tabpage-nav-icon" data-icon="material:view-grid-outline"></span>
+                <span class="tabpage-nav-label" data-i18n="nav.more.title">更多</span>
+            </button>
+        </nav>
+
+        <!-- 标签页面板 -->
+        <div class="tabpage-centent" data-navid="main">
+            <!-- 启动标签页 -->
+            <section class="tabpage-panel" role="tabpanel" data-pageid="index">
+                <h2 class="tabpage-panel-title" data-i18n="nav.index.title">启动</h2>
+
+                <div class="page-container page-index">
+                    <div class="game-start-page-description text-regular">只需一步，立即开始</div>
+
+                    <button id="game-start" class="mcl-button btn-game-start">
+                        <span class="title">启动游戏</span>
+                        <span class="description">Classic 0.0.23a_01</span>
+                    </button>
+                </div>
+			</section>
+
+            <!-- 下载标签页 -->
+            <section class="tabpage-panel hidden" role="tabpanel" data-pageid="download">
+                <h2 class="tabpage-panel-title" data-i18n="nav.download.title">下载</h2>
+
+                <div class="page-container"></div>
+            </section>
+
+            <!-- 设置标签页 -->
+            <section class="tabpage-panel hidden" role="tabpanel" data-pageid="settings">
+                <h2 class="tabpage-panel-title" data-i18n="nav.settings.title">设置</h2>
+
+                <div class="page-container"></div>
+            </section>
+
+            <!-- 更多标签页 -->
+            <section class="tabpage-panel hidden" role="tabpanel" data-pageid="more">
+                <h2 class="tabpage-panel-title" data-i18n="nav.more.title">更多</h2>
+
+                <div class="page-container"></div>
+            </section>
+		</div>
+    </main>
+
+    <footer>
+        <div>本启动器只是一个玩笑，它也许并不能为您提供所需要的服务</div>
+    </footer>
+    
+    <script src="res/script/i18n.js" defer></script>
+    <script>
+        Icon.loadPageIcon();
+    </script>
+    <script src="res/script/common.js"></script>
+</body>
+</html>
