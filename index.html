@@ -7,12 +7,23 @@
     <link rel="stylesheet" href="res/style/common.css">
     <link rel="stylesheet" href="res/style/component.css">
     <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="res/class/LocalStorageManager.js"></script>
     <script src="res/class/EchoLiveSystem.js"></script>
     <script src="res/data/root.js"></script>
     <script src="lang/index.js"></script>
     <script src="res/class/Translator.js"></script>
     <script id="translator-init">
-        const translator = new Translator('zho-Hans');
+        const localStorageManager = new LocalStorageManager();
+
+        if (localStorageManager.getItem('config') === undefined) {
+            localStorageManager.setItem('config', {
+                language: 'zho-Hans',
+                window_width: 1280,
+                window_height: 720
+            });
+        }
+
+        const translator = new Translator(localStorageManager.getItem('config').language || 'zho-Hans');
         const $t = function(...e) {
             return translator.output(...e);
         };
@@ -28,8 +39,8 @@
 </head>
 <body>
     <header>
-        <h1>Man! Craft Launcher</h1>
-        <div class="description">一款假得不能再假的 Minecraft 启动器</div>
+        <h1 data-i18n="header.title">Man! Craft Launcher</h1>
+        <div class="description" data-i18n="header.description">一款假得不能再假的 Minecraft 启动器</div>
     </header>
 
     <main>
@@ -88,10 +99,10 @@
                 <h2 class="tabpage-panel-title" data-i18n="nav.index.title">启动</h2>
 
                 <div class="page-container page-index">
-                    <div class="game-start-page-description text-regular">只需一步，立即开始</div>
+                    <div class="game-start-page-description text-regular" data-i18n="index.description">只需一步，立即开始</div>
 
                     <button id="game-start" class="mcl-button btn-game-start">
-                        <span class="title">启动游戏</span>
+                        <span class="title" data-i18n="index.game_start">启动游戏</span>
                         <span class="description">Classic 0.0.23a_01</span>
                     </button>
                 </div>
@@ -101,27 +112,142 @@
             <section class="tabpage-panel hidden" role="tabpanel" data-pageid="download">
                 <h2 class="tabpage-panel-title" data-i18n="nav.download.title">下载</h2>
 
-                <div class="page-container"></div>
+                <div class="page-container page-download">
+                    <div class="text-regular" data-i18n="download.description_1"></div>
+                    <div class="text-regular" data-i18n="download.description_2"></div>
+                    <div class="text-regular" data-i18n="download.description_3"></div>
+                </div>
             </section>
 
             <!-- 设置标签页 -->
             <section class="tabpage-panel hidden" role="tabpanel" data-pageid="settings">
                 <h2 class="tabpage-panel-title" data-i18n="nav.settings.title">设置</h2>
 
-                <div class="page-container"></div>
+                <div class="page-container page-settings">
+                    <div class="text-regular" data-i18n="settings.description"></div>
+
+                    <div class="mcl-form-item">
+                        <label for="config-language" data-i18n="settings.language"></label>
+                        <select id="config-language" name="language"></select>
+                    </div>
+
+                    <div class="mcl-form-item">
+                        <label for="config-window-width" data-i18n="settings.game_window_size"></label>
+                        <div class="config-window-size text-regular">
+                            <input type="number" name="window_width" id="config-window-width" min="100" value="1280"> × 
+                            <input type="number" name="window_height" id="config-window-height" min="100" value="720">
+                        </div>
+                    </div>
+
+                    <div class="mcl-form-item">
+                        <label for="config-js" data-i18n="settings.game_javascript"></label>
+                        <select id="config-js">
+                            <option value="es6">ECMAScript 6</option>
+                        </select>
+                    </div>
+
+                    <div class="mcl-form-item">
+                        <label for="config-process-priority" data-i18n="settings.process_priority.title"></label>
+                        <select id="config-process-priority">
+                            <option value="auto" data-i18n="settings.process_priority.option.auto"></option>
+                            <option value="auto1" data-i18n="settings.process_priority.option.auto1"></option>
+                            <option value="auto2" data-i18n="settings.process_priority.option.auto2"></option>
+                            <option value="auto3" data-i18n="settings.process_priority.option.auto3"></option>
+                        </select>
+                    </div>
+
+                    <div class="mcl-form-item">
+                        <label for="config-launcher-visibility" data-i18n="settings.launcher_visibility.title"></label>
+                        <select id="config-launcher-visibility">
+                            <option value="auto" data-i18n="settings.launcher_visibility.option.auto"></option>
+                            <option value="auto1" data-i18n="settings.launcher_visibility.option.auto1"></option>
+                            <option value="auto2" data-i18n="settings.launcher_visibility.option.auto2"></option>
+                            <option value="auto3" data-i18n="settings.launcher_visibility.option.auto3"></option>
+                        </select>
+                    </div>
+
+                    <div class="mcl-form-item">
+                        <label for="config-game-memory" data-i18n="settings.game_memory.title"></label>
+                        <select id="config-game-memory">
+                            <option value="auto" data-i18n="settings.game_memory.option.auto"></option>
+                            <option value="auto1" data-i18n="settings.game_memory.option.auto1"></option>
+                            <option value="auto2" data-i18n="settings.game_memory.option.auto2"></option>
+                            <option value="auto3" data-i18n="settings.game_memory.option.auto3"></option>
+                        </select>
+                    </div>
+
+                    <div class="mcl-form-item">
+                        <label for="config-game-skin" data-i18n="settings.game_skin.title"></label>
+                        <select id="config-game-skin">
+                            <option value="steve" data-i18n="settings.game_skin.option.steve"></option>
+                            <option value="steve2" data-i18n="settings.game_skin.option.steve2"></option>
+                        </select>
+                    </div>
+                </div>
             </section>
 
             <!-- 更多标签页 -->
             <section class="tabpage-panel hidden" role="tabpanel" data-pageid="more">
                 <h2 class="tabpage-panel-title" data-i18n="nav.more.title">更多</h2>
 
-                <div class="page-container"></div>
+                <div class="page-container page-more">
+                    <h3 data-i18n="more.about.title">关于 Man! Craft Launcher</h3>
+
+                    <div class="text-regular w-full">
+                        <br>
+                        <div data-i18n="more.about.description_1">本启动器出于玩笑而创作，仅供娱乐，内容纯属虚构。</div>
+                        <br>
+                        <div>版权所有 © <a href="https://github.com/sheep-realms" target="_blank">Sheep-realms</a> 和 <a href="https://github.com/sheep-realms/ManCraft-Launcher" target="_blank">GitHub 项目 sheep-realms/ManCraft-Launcher 上的贡献者们</a>。</div>
+                        <br>
+                        <div>Man! Craft Launcher 是自由软件，您可以依据自由软件基金会发行的 <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL（GNU General Public License，GNU通用公共许可协议）第3版</a> 或任意后续版本的条款，传播和/或修改本软件。您传播和/或修改本软件即视为您已阅读 GPL 协议并无条件同意。</div>
+                        <br>
+                        <div>Man! Craft Launcher 发表时预期有用，但对此无任何保证；亦无隐含的可以销售或适合特定目的的保证。详情请见 GNU 公众授权协议。</div>
+                        <br>
+                        <div>Man! Craft Launcher 包含有其他开源组件，这些开源组件及其授权协议将在下文列出。</div>
+                        <br>
+                        <div>Man! Craft Launcher 包含有并非以 GNU 公众授权协议共享的美术资源，这些资源的版权信息将在下文列出。</div>
+                        <br>
+                        <br>
+                    </div>
+
+                    <h3 data-i18n="more.open_source.title">开源组件</h3>
+
+                    <div class="text-regular w-full">
+                        <br>
+                        <ul>
+                            <li><a href="https://github.com/sheep-realms/Echo-Live" target="_blank">Echo-Live</a>: <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GPL-3.0 License</a></li>
+                            <li><a href="https://github.com/jquery/jquery" target="_blank">jquery</a>: <a href="https://opensource.org/license/mit" target="_blank">MIT License</a></li>
+                        </ul>
+                        <br>
+                        <br>
+                    </div>
+
+                    <h3 data-i18n="more.art_source.title">美术资源</h3>
+
+                    <div class="text-regular w-full">
+                        <br>
+                        <ul>
+                            <li><a href="https://pictogrammers.com/library/mdi/" target="_blank">Material Design Icons</a>: <a href="https://apache.org/licenses/LICENSE-2.0" target="_blank">Apache License 2.0</a></li>
+                        </ul>
+                        <br>
+                        <br>
+                    </div>
+
+                    <h3 data-i18n="more.friendship_link.title">友情链接</h3>
+                    <br>
+                    <div>
+                        <a href="https://www.minecraft.net/" target="_blank">Minecraft 官网</a> · 
+                        <a href="https://zh.minecraft.wiki/" target="_blank">Minecraft Wiki</a> · 
+                        <a href="https://www.mczwlt.net/" target="_blank">红石中继站</a> · 
+                        <a href="https://www.mcbbs.co/" target="_blank">MCBBS 纪念版</a>
+                    </div>
+                </div>
             </section>
 		</div>
     </main>
 
     <footer>
-        <div>本启动器只是一个玩笑，它也许并不能为您提供所需要的服务</div>
+        <div data-i18n="footer.description">本启动器只是一个玩笑，它也许并不能为您提供所需要的服务</div>
     </footer>
     
     <script src="res/script/i18n.js" defer></script>

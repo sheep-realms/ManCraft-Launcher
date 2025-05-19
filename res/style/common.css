@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+
+    font-family: '鸿蒙黑体', '梦源黑体', '思源黑体', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', 'Arial', sans-serif;
 }
 
 :root {
@@ -78,6 +80,23 @@
     --border-radius-large: 0.75rem;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #BEC1C6;
+        --text-regular: #9C9EA6;
+        --text-secondary: #747780;
+        --text-placeholder: #5B5E66;
+    
+        --border-color: #666666;
+        --box-shadow: 0 2px 16px rgba(128, 128, 128, 0.35);
+    
+        --page-bgcolor: #1E2129;
+        --page-bgcolor-glass: rgba(30, 33, 41, 0.85);
+        --input-bgcolor: #333740;
+        --input-color: var(--text-primary);
+    }
+}
+
 body {
     background-color: var(--page-bgcolor);
     font-size: var(--font-size-base);
@@ -111,12 +130,33 @@ footer {
     align-items: center;
     color: var(--text-secondary);
     font-size: var(--font-size-small);
+    height: 72px;
 }
 
 h1 {
     color: var(--color-main);
     text-align: center;
     font-size: var(--font-size-title-1);
+}
+
+h3 {
+    color: var(--text-primary);
+    text-align: center;
+    font-size: var(--font-size-title-3);
+}
+
+a {
+    color: var(--color-main);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.125em;
+}
+
+ul {
+    padding-left: 1.5em;
 }
 
 
@@ -139,6 +179,10 @@ h1 {
 
 .text-placeholder {
     color: var(--text-placeholder);
+}
+
+.w-full {
+    width: min(calc(100% - var(--gap-large)), 600px);
 }
 
 
@@ -170,4 +214,13 @@ h1 {
     margin-top: max(calc(var(--height-page-container) * 0.25 - 32px), 32px);
     margin-bottom: var(--gap-large);
     font-size: var(--font-size-large);
+}
+
+
+
+.config-window-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-small);
 }

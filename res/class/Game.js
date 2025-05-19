@@ -1,10 +1,8 @@
 class Game {
     constructor() {
         this.config = {
-            window_size: {
-                width: 1280,
-                height: 720
-            }
+            window_width: 1280,
+            window_height: 720
         };
         this.window = undefined;
         this.timer = {
@@ -12,25 +10,33 @@ class Game {
         }
     }
 
+    updateConfig() {
+        const config = localStorageManager.getItem('config');
+        this.config = {
+            ...this.config,
+            ...config
+        };
+    }
+
     launchAnimation() {
-        $('#game-start > .title').text('正在启动...');
+        $('#game-start > .title').text($t('index.game_starting'));
         $('#game-start').attr('disabled', 'disabled');
 
         setTimeout(() => {
-            $('#game-start > .title').text('游戏已启动');
+            $('#game-start > .title').text($t('index.game_started'));
             $('#game-start').removeAttr('disabled');
             $('#game-start').addClass('game-started');
             this.launch();
 
             setTimeout(() => {
-                $('#game-start > .title').text('结束游戏');
+                $('#game-start.game-started > .title').text($t('index.game_stop'));
             }, 3000);
         }, 1000);
     }
 
     launch() {
-        const { width, height } = this.config.window_size;
-        
+        this.updateConfig();
+
         // 当前浏览器窗口相对于屏幕的位置
         const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
         const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
@@ -40,10 +46,10 @@ class Game {
         const windowHeight = window.outerHeight || document.documentElement.clientHeight;
 
         // 计算新窗口的位置
-        const left = dualScreenLeft + (windowWidth - width) / 2;
-        const top = dualScreenTop + (windowHeight - height) / 2;
+        const left = dualScreenLeft + (windowWidth - this.config.window_width) / 2;
+        const top = dualScreenTop + (windowHeight - this.config.window_height) / 2;
 
-        this.window = window.open('https://classic.minecraft.net/', '_blank', `popup=true,width=${width},height=${height},top=${top},left=${left}`);
+        this.window = window.open('https://classic.minecraft.net/', '_blank', `popup=true,width=${this.config.window_width},height=${this.config.window_height},top=${top},left=${left}`);
 
         // 处理新窗口未打开的情况
         if (this.window === null) {}
@@ -61,12 +67,12 @@ class Game {
         if (this.window === undefined) return;
         this.window.close();
         this.window = undefined;
-        $('#game-start > .title').text('正在结束游戏...');
+        $('#game-start > .title').text($t('index.game_stopping'));
         $('#game-start').attr('disabled', 'disabled');
         $('#game-start').removeClass('game-started');
 
         setTimeout(() => {
-            $('#game-start > .title').text('启动游戏');
+            $('#game-start > .title').text($t('index.game_start'));
             $('#game-start').removeAttr('disabled');
         }, 1000);
     }

@@ -4,17 +4,6 @@ const lang_zho_Hans = {
         code_ietf: "zh-Hans",
         title: "简体中文"
     },
-    localization: {
-        bracket: "（{text}）",
-        comma: "，",
-        date_common: "{y}-{MM}-{dd}",
-        date_time_common: "{y}-{MM}-{dd} {hh}:{mm}:{ss}",
-        date: "{y} 年 {M} 月 {d} 日",
-        date_pad_zero: "{y} 年 {MM} 月 {dd} 日",
-        date_time: "{y} 年 {M} 月 {d} 日 {h}:{m}:{s}",
-        date_time_pad_zero: "{y} 年 {MM} 月 {dd} 日 {hh}:{mm}:{ss}",
-        time_common: "{hh}:{mm}:{ss}",
-    },
     ui: {
         confirm: "确定",
         cancel: "取消",
@@ -74,6 +63,81 @@ const lang_zho_Hans = {
             title: "更多",
             description: "获取更多信息"
         }
+    },
+    header: {
+        title: "Man! Craft Launcher",
+        description: "一款假得不能再假的 Minecraft 启动器"
+    },
+    index: {
+        game_start: "启动游戏",
+        game_starting: "正在启动...",
+        game_started: "游戏已启动",
+        game_stop: "结束游戏",
+        game_stopping: "正在结束游戏...",
+        description: "只需一步，立即开始"
+    },
+    download: {
+        description_1: "您不需要下载任何内容，我们已经为您准备好了一切！",
+        description_2: "友商还在为版本隔离发愁，而我们开创性地毁灭了版本隔离！",
+        description_3: "Minecraft 有那么多版本可供选择，为什么我们不能只专注一个版本呢？"
+    },
+    settings: {
+        description: "事实上，我们已经为您准备好了最佳设置，您改动这些设置是毫无意义的！",
+        game_window_size: "游戏窗口尺寸",
+        game_javascript: "游戏 JavaScript",
+        language: "启动器语言",
+        process_priority: {
+            title: "进程优先级",
+            option: {
+                auto: "浏览器智能控制",
+                auto1: "浏览器自己控制",
+                auto2: "浏览器看情况控制",
+                auto3: "浏览器可以搞定一切"
+            }
+        },
+        launcher_visibility: {
+            title: "启动器可见性",
+            option: {
+                auto: "始终可见",
+                auto1: "永远可见",
+                auto2: "游戏启动后仍保持不变",
+                auto3: "就算你把显示器砸了启动器也还在那里"
+            }
+        },
+        game_memory: {
+            title: "游戏内存",
+            option: {
+                auto: "自动配置",
+                auto1: "弹性配置",
+                auto2: "优雅配置",
+                auto3: "智能配置"
+            }
+        },
+        game_skin: {
+            title: "游戏皮肤",
+            option: {
+                steve: "Steve",
+                steve2: "史蒂夫"
+            }
+        }
+    },
+    more: {
+        about: {
+            title: "关于 Man! Craft Launcher",
+            description_1: "本启动器出于玩笑而创作，仅供娱乐，内容纯属虚构。"
+        },
+        open_source: {
+            title: "开源组件"
+        },
+        art_source: {
+            title: "美术资源"
+        },
+        friendship_link: {
+            title: "友情链接"
+        }
+    },
+    footer: {
+        description: "本启动器只是一个玩笑，它也许并不能为您提供所需要的服务"
     }
 };
 

@@ -39,7 +39,7 @@
 
 .tabpage-nav-item[aria-selected="true"] {
     background-color: var(--color-main);
-    color: var(--input-bgcolor);
+    color: #ffffff;
 }
 
 .tabpage-nav-icon {
@@ -52,12 +52,12 @@
 }
 
 .tabpage-nav-item[aria-selected="true"] .tabpage-nav-icon {
-    fill: var(--input-bgcolor);
+    fill: #ffffff;
 }
 
 .tabpage-nav-label {
     position: relative;
-    top: -1px;
+    /* top: -1px; */
 }
 
 @media screen and (max-width: 760px) {
@@ -75,6 +75,7 @@
     gap: var(--gap-middle);
     padding: var(--gap-large) 0;
     height: var(--height-page-container);
+    overflow: auto;
 }
 
 
@@ -84,7 +85,7 @@
     justify-content: center;
     padding: var(--gap-extra-small) var(--gap-middle);
     font-size: var(--font-size-base);
-    color: var(--input-bgcolor);
+    color: #ffffff;
     cursor: pointer;
     border: none;
     background-color: var(--color-general);
@@ -109,4 +110,74 @@
 .mcl-button[disabled] {
     cursor: not-allowed;
     opacity: 0.75;
+}
+
+
+
+.mcl-form-item {
+    width: min(calc(100% - var(--gap-large)), 600px);
+}
+
+.mcl-form-item + .mcl-form-item {
+    margin-top: var(--gap-small);
+}
+
+.mcl-form-item label {
+    color: var(--text-regular);
+    display: block;
+    padding: var(--gap-extra-small) 0;
+}
+
+
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+select {
+    width: 100%;
+    height: var(--height-component);
+    padding: var(--gap-small);
+    font-size: var(--font-size-base);
+    color: var(--input-color);
+    background-color: var(--input-bgcolor);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius-small);
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="number"]:hover,
+input[type="search"]:hover,
+input[type="tel"]:hover,
+input[type="url"]:hover,
+select:hover {
+    border-color: var(--color-general);
+    box-shadow: 0 0 0 2px var(--color-general-glass);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+select:focus {
+    border-color: var(--color-general);
+    box-shadow: 0 0 0 4px var(--color-general);
+}
+
+input[type="number"]:out-of-range,
+input[type="text"]:invalid {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 4px var(--color-danger);
 }
