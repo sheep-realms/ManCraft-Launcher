@@ -16,6 +16,11 @@ const lang_index = {
             code_ietf: "zh-Hant-TW",
             title: "繁體中文（臺灣地區）",
             url: "zho-Hant-TW.js"
+        }, {
+            code: "eng",
+            code_ietf: "en",
+            title: "English",
+            url: "eng.js"
         }
     ]
 };

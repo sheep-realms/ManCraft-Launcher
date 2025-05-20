@@ -86,7 +86,7 @@ const lang_zho_Hant_HK = {
         description: "事實上，我們已經為您準備好了最佳設置，您改動這些設置是毫無意義的！",
         game_window_size: "遊戲窗口尺寸",
         game_javascript: "遊戲 JavaScript",
-        language: "啟動器語言",
+        language: "啟動器語言 / Launcher Language",
         process_priority: {
             title: "進程優先級",
             option: {

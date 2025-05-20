@@ -86,7 +86,7 @@ const lang_zho_Hans = {
         description: "事实上，我们已经为您准备好了最佳设置，您改动这些设置是毫无意义的！",
         game_window_size: "游戏窗口尺寸",
         game_javascript: "游戏 JavaScript",
-        language: "启动器语言",
+        language: "启动器语言 / Launcher Language",
         process_priority: {
             title: "进程优先级",
             option: {
