@@ -180,5 +180,11 @@ select:focus {
 input[type="number"]:out-of-range,
 input[type="text"]:invalid {
     border-color: var(--color-danger);
+    box-shadow: 0 0 0 2px var(--color-danger);
+}
+
+input[type="number"]:out-of-range:focus,
+input[type="text"]:invalid:focus {
+    border-color: var(--color-danger);
     box-shadow: 0 0 0 4px var(--color-danger);
 }
