@@ -54,7 +54,7 @@ class Game {
         // 处理新窗口未打开的情况
         if (this.window === null) {
             alert($t('index.game_window_open_failed'));
-            return;
+            return this.stop();
         }
 
         // 监听新窗口关闭事件
