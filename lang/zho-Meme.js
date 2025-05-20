@@ -80,7 +80,7 @@ const lang_zho_Meme = {
     download: {
         description_1: "您不需要下载任何内容，因为根本就没有需要下载的东西！",
         description_2: "友商还在为版本隔离发愁，而我们开创性地毁灭了友商！",
-        description_3: "Minecraft 有那么多版本可供选择，为什么我们不能不选择呢？"
+        description_3: "迈恩克拉夫特有那么多版本可供选择，为什么我们不能不选择呢？"
     },
     settings: {
         description: "事实上，我们已经为您准备好了最佳设置，您随便改，反正我不看！",
