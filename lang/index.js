@@ -22,6 +22,16 @@ const lang_index = {
             title: "梗体中文（天朝）",
             url: "zho-Meme.js"
         }, {
+            code: "zho-Mars",
+            code_ietf: "zh-Mars",
+            title: "伙星☆芠",
+            url: "zho-Mars.js"
+        }, {
+            code: "zho-Emoji",
+            code_ietf: "zh-Emoji",
+            title: "🤡🐘🌸",
+            url: "zho-Emoji.js"
+        }, {
             code: "eng",
             code_ietf: "en",
             title: "English",
