@@ -17,6 +17,11 @@ const lang_index = {
             title: "繁體中文（臺灣地區）",
             url: "zho-Hant-TW.js"
         }, {
+            code: "zho-Meme",
+            code_ietf: "zh-Meme",
+            title: "梗体中文（天朝）",
+            url: "zho-Meme.js"
+        }, {
             code: "eng",
             code_ietf: "en",
             title: "English",
