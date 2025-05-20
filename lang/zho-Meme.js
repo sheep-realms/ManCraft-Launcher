@@ -124,7 +124,7 @@ const lang_zho_Meme = {
     },
     more: {
         about: {
-            title: "关于 Man! Craft Launcher",
+            title: "关于曼恩克拉夫特发射器",
             description_1: "本发射器出于玩笑而创作，仅供娱乐，内容纯属虚构。"
         },
         open_source: {
