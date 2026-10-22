@@ -32,6 +32,11 @@ const lang_index = {
             title: "🤡🐘🌸",
             url: "zho-Emoji.js"
         }, {
+            code: "zh-Eng",
+            code_ietf: "zh-Eng",
+            title: "辛普菲尔德·揣尼斯",
+            url: "zho-Eng.js"
+        }, {
             code: "eng",
             code_ietf: "en",
             title: "English",
